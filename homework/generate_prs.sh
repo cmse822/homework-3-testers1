@@ -39,7 +39,7 @@ for i in $(seq 1 $NUM_NOTEBOOKS); do
 
   # Create and switch to a new branch
   git checkout "$MAIN_BRANCH" || { echo "Error: Failed to checkout $MAIN_BRANCH"; exit 1; }
-  git checkout -b "$branch_name"
+  git switch -c "$branch_name"
 
   # Create the notebook JSON structure
   cat <<EOF > "$NOTEBOOK_PATH"
