@@ -29,7 +29,10 @@ fi
 gh repo set-default "$REPO"
 
 # Ensure the homework directory exists
-mkdir -p "$HOMEWORK_DIR"
+if [ ! -d "$HOMEWORK_DIR" ]; then
+  echo "Error: The homework directory '$HOMEWORK_DIR' does not exist. Please create it first."
+  exit 1
+fi
 
 # Loop to create notebooks, branches, and PRs
 for i in $(seq 1 $NUM_NOTEBOOKS); do
