@@ -73,6 +73,6 @@ EOF
     --reviewer "$(gh api repos/$(gh repo view --json nameWithOwner --jq '.nameWithOwner')/collaborators --jq '.[].login' | tr '\n' ',' | sed 's/,$//')"
 done
 
-git checkout "$MAIN_BRANCH"
+git switch "$MAIN_BRANCH"
 
 echo "All notebooks created, branches pushed, and pull requests opened!"
