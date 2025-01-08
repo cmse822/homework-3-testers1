@@ -34,7 +34,7 @@ mkdir -p "$HOMEWORK_DIR"
 # Loop to create notebooks, branches, and PRs
 for i in $(seq 1 $NUM_NOTEBOOKS); do
   exercise_name="exercise${i}"
-  branch_name="exercise-${i}"
+  branch_name="${HOMEWORK_DIR}-exercise-${i}"
   NOTEBOOK_PATH="$HOMEWORK_DIR/${exercise_name}.ipynb"
 
   # Create and switch to a new branch
