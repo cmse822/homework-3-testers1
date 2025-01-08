@@ -69,6 +69,7 @@ EOF
 
   # Create a pull request for the branch
   gh pr create \
+    --repo "$REPO" \
     --title "Complete Exercise: $exercise_name" \
     --body "This pull request tracks progress for the **$exercise_name** notebook in Homework **$HOMEWORK_DIR**. Please review and merge when complete." \
     --base "$MAIN_BRANCH" \
