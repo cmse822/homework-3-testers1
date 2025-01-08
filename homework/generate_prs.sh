@@ -39,7 +39,14 @@ for i in $(seq 1 $NUM_NOTEBOOKS); do
 
   # Create and switch to a new branch
   git checkout "$MAIN_BRANCH" || { echo "Error: Failed to checkout $MAIN_BRANCH"; exit 1; }
-  git switch -c "$branch_name"
+  # Check if the branch already exists
+  if git branch -r | grep "origin/$branch_name" > /dev/null; then
+    echo "Branch '$branch_name' already exists. Switching to it."
+    git switch "$branch_name"
+  else
+    # Create the branch
+    git switch -C "$branch_name"
+  fi
 
   # Create the notebook JSON structure
   cat <<EOF > "$NOTEBOOK_PATH"
